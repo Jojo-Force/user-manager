@@ -1,4 +1,4 @@
-﻿export default [
+export default [
   {
     path: '/user',
     layout: false,
@@ -45,6 +45,12 @@
   {
     path: '/',
     redirect: '/welcome',
+  },
+  {
+    name: '分析页',
+    icon: 'smile',
+    path: '/yupi',
+    component: './DashboardAnalysis',
   },
   {
     component: './404',
