@@ -47,12 +47,6 @@ export default [
     redirect: '/welcome',
   },
   {
-    name: '分析页',
-    icon: 'smile',
-    path: '/yupi',
-    component: './DashboardAnalysis',
-  },
-  {
     component: './404',
   },
 ];
