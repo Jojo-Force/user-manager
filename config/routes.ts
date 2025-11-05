@@ -4,9 +4,14 @@ export default [
     layout: false,
     routes: [
       {
-        name: 'login',
+        name: '登录',
         path: '/user/login',
         component: './user/Login',
+      },
+      {
+        name: '注册',
+        path: '/user/register',
+        component: './user/Register',
       },
       {
         component: './404',
@@ -24,12 +29,13 @@ export default [
     name: 'admin',
     icon: 'crown',
     access: 'canAdmin',
+    component: './Admin',
     routes: [
       {
-        path: '/admin/sub-page',
-        name: 'sub-page',
+        path: '/admin/user-manager',
+        name: '用户管理',
         icon: 'smile',
-        component: './Welcome',
+        component: './Admin/UserManage',
       },
       {
         component: './404',
