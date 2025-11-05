@@ -74,6 +74,10 @@ const columns: ProColumns<API.CurrentUser>[] = [
     copyable: true,
   },
   {
+    title: '星球编号',
+    dataIndex: 'planetCode',
+  },
+  {
     title: '状态',
     dataIndex: 'userStatus',
   },
