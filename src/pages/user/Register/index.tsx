@@ -36,10 +36,10 @@ const Register: React.FC = () => {
   const handleSubmit = async (values: API.RegisterParams) => {
     const {userAccount, userPassword, checkPassword, planetCode} = values;
 
-    if (planetCode?.length > 5) {
-       message.error('星球编码长度大于5');
-       return
-    }
+    // if (planetCode?.length > 5) {
+    //    message.error('星球编码长度大于5');
+    //    return
+    // }
 
     if (userPassword !== checkPassword) {
        message.error('两次密码不一致');
@@ -51,7 +51,8 @@ const Register: React.FC = () => {
 
       // submitText
       const id = await register({...values});
-      if (id > 0) {
+
+      if (id) {
         const defaultLoginSuccessMessage = '注册成功！'
         message.success(defaultLoginSuccessMessage);
         /** 此方法会跳转到 redirect 参数所在的位置 */
@@ -63,12 +64,11 @@ const Register: React.FC = () => {
         });
         return;
       } else {
-        throw new Error(`register error ${id}`);
+        throw new Error();
       }
-    } catch (error) {
+    } catch (error: any) {
       const defaultLoginFailureMessage ='注册失败，请重试!'
-
-      message.error(defaultLoginFailureMessage);
+      message.error(error.message ?? defaultLoginFailureMessage);
     }
   };
 
@@ -192,12 +192,12 @@ const Register: React.FC = () => {
                       '星球编号是必填项'
                     ),
                   },
-                  {
-                    max: 5,
-                    message: (
-                      '星球编号长度大于5'
-                    ),
-                  },
+                  // {
+                  //   max: 5,
+                  //   message: (
+                  //     '星球编号长度大于5'
+                  //   ),
+                  // },
                 ]}
               />
             </>
