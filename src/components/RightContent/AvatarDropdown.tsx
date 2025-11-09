@@ -65,6 +65,14 @@ const AvatarDropdown: React.FC<GlobalHeaderRightProps> = ({ menu }) => {
 
   const { currentUser } = initialState;
 
+  if (currentUser !== null && currentUser !== undefined && currentUser.username === null) {
+      currentUser.username = '无名';
+  }
+
+  if (currentUser !== null && currentUser !== undefined && currentUser.avatarUrl === null) {
+    currentUser.avatarUrl = 'https://www.codefather.cn/_next/image?url=%2Fimages%2Flogo.png&w=128&q=75';
+  }
+
   if (!currentUser || !currentUser.username) {
     return loading;
   }

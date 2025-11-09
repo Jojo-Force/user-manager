@@ -63,12 +63,10 @@ const Register: React.FC = () => {
           query
         });
         return;
-      } else {
-        throw new Error();
       }
     } catch (error: any) {
       const defaultLoginFailureMessage ='注册失败，请重试!'
-      message.error(error.message ?? defaultLoginFailureMessage);
+      message.error(defaultLoginFailureMessage);
     }
   };
 

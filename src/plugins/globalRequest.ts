@@ -3,7 +3,7 @@ import { message } from 'antd';
 
 const request = extend({
   credentials: 'include',
-  prefix: process.env.NODE_ENV === 'production' ? 'http://user-backend.code-nav.cn' : undefined,
+  prefix: process.env.NODE_ENV === 'production' ? 'http://user-center.jojo-force.top' : '',
 });
 
 request.interceptors.request.use((url:string, options) => {
@@ -36,10 +36,12 @@ request.interceptors.response.use( async (response: Response, options) => {
         redirect: location.pathname,
       }),
     });
+  } else if (res.code === 40000 && res.description === '用户不存在') {
+
   } else {
     message.error(res.description);
   }
-  return res.data;
+  return null;
 });
 
  export default request;
